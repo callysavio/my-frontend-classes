@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <ul id="users-list"></ul>
+    <button id="delete-btn">Delete Users</button>
+    <script>
+        let name = "Callistus Anwara";
+        let users = [
+            "Callistus",
+            "Praise",
+            {
+                name: "John",
+                age: 23,
+                job: "Developer",
+            },
+            "Sabali",
+            "Emmanuel",
+            "Ayo",
+            "Tobi",
+            [23, 45, 67],
+        ];
+
+        let paidUsers = {
+            name: "Anwara",
+            age: 34,
+            job: "Developer",
+            wives: {
+                firstWife: {
+                    name: "Joy",
+                    age: 30,
+                    daughters: ['Nkiru', 'Ngozi', 'Chioma']
+                },
+                secondWife: "Peace",
+                thirdWife: "Love",
+            }
+        }
+
+        localStorage.setItem("paidUsers", JSON.stringify(paidUsers));
+        let retrievedPaidUsers = JSON.parse(localStorage.getItem("paidUsers"));
+        console.log(retrievedPaidUsers);
+        console.log(retrievedPaidUsers.wives.firstWife.daughters[1]);
+        let container = document.getElementById("container");
+        console.log(users);
+        localStorage.setItem("myname", name);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        let retrievedName = localStorage.getItem("myname");
+        let retrievedUsers = JSON.parse(localStorage.getItem("users"));
+        container.innerHTML = `<h1>${retrievedName}</h1>`;
+        let usersList = document.getElementById("users-list");
+        // usersList.innerHTML = `<li>${retrievedUsers}</li>`
+        retrievedUsers.map((user) => {
+            return (usersList.innerHTML += `<li>${user}</li>`);
+        });
+
+        // delete users from local storage
+        let deleteBtn = document.getElementById("delete-btn");
+        deleteBtn.addEventListener("click", () => {
+            localStorage.removeItem("users");
+            usersList.innerHTML = "";
+            deleteBtn.textContent = "Users Deleted Successfully!";
+
+            // clear all items in local storage
+            localStorage.clear();
+        });
+
+        console.log(localStorage.key(1));
+        localStorage.length;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Model</title>
+</head>
+
+<body>
+    <div id="d1">
+        I am a container When the text-align property is set to "justify", each
+        line is stretched so that every line has equal width, and the left and
+        right margins are straight (like in magazines and newspapers):When the
+        text-align property is set to "justify", each line is stretched so that
+        every line has equal width, and the left and right margins are straight
+        (like in magazines and newspapers):When the text-align property is set to
+        "justify", each line is stretched so that every line has equal width, and
+        the left and right margins are straight (like in magazines and
+        newspapers):
+    </div>
+    <p>I am a second element</p>
+    <div id="line"></div>
+    <p>
+        I am a container When the text-align property is set to "justify", each
+        line is stretched so that every line has equal width, and the left and
+        right margins are straight (like in magazines and newspapers):When the
+        text-align property is set to "justify", each line is stretched so that
+        every line has equal width, and the left and right margins are straight
+        (like in magazines and newspapers):When the text-align property is set to
+        "justify", each line is stretched so that every line has equal width, and
+        the left and right margins are straight (like in magazines and
+        newspapers):
+    </p>
+    <p>
+        I am a container When the text-align property is set to "justify", each
+        line is stretched so that every line has equal width, and the left and
+        right margins are straight (like in magazines and newspapers):When the
+        text-align property is set to "justify", each line is stretched so that
+        every line has equal width, and the left and right margins are straight
+        (like in magazines and newspapers):When the text-align property is set to
+        "justify", each line is stretched so that every line has equal width, and
+        the left and right margins are straight (like in magazines and
+        newspapers):
+    </p>
+
+    <p>I am Callistus</p>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-bottom: 500px;
+        }
+
+        #d1 {
+            width: 650px;
+            height: 250px;
+            border: 2px solid red;
+            margin: auto;
+            /* background: linear-gradient(to bottom, red, green, yellow); */
+            background: linear-gradient(to right,
+                    rgba(0, 0, 20, 0.5),
+                    rgba(100, 0, 200, 0.5)),
+                url("./images/calli.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            text-align-last: justify;
+            color: white;
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            right: 0px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 100px;
+            width: 330;
+            height: 87;
+            gap: 10px;
+            border-radius: 20px;
+            padding-top: 30px;
+            padding-right: 115px;
+            padding-bottom: 30px;
+            padding-left: 115px;
+            color: rgba(206, 209, 220, 0.05);
+        }
+
+        #line {
+            width: 40px;
+            height: 5px;
+            background-color: red;
+            margin: auto;
+        }
+    </style>
+</body>
+
+</html>

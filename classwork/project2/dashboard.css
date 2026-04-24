@@ -1,0 +1,398 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dashboard Styles */
+#dashboard {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  border: 1px solid #e5e7eb;
+  position: relative;
+}
+
+/* Dashboard Header */
+#dashboard h2 {
+  color: #1f2937;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+  letter-spacing: -0.025em;
+  text-align: center;
+  position: relative;
+}
+
+#dashboard h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 2px;
+}
+
+/* User Info Styling */
+#dashboard p {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+#dashboard p:hover {
+  background: #f1f5f9;
+  transform: translateX(2px);
+}
+
+/* User Data Spans */
+#dashName,
+#dashEmail,
+#dashUsername {
+  font-weight: 600;
+  color: #1f2937;
+  word-break: break-word;
+}
+
+#dashName {
+  color: #3b82f6;
+  font-size: 1.1em;
+}
+
+/* Info Labels */
+#dashboard p::before {
+  font-weight: 500;
+  color: #6b7280;
+  margin-right: 0.5rem;
+}
+
+/* Add icons to info sections */
+#dashboard p:nth-of-type(1)::before {
+  content: "📧";
+  margin-right: 0.75rem;
+}
+
+#dashboard p:nth-of-type(2)::before {
+  content: "👤";
+  margin-right: 0.75rem;
+}
+
+/* Logout Button */
+#logoutBtn {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  text-transform: none;
+  letter-spacing: 0.025em;
+  position: relative;
+  overflow: hidden;
+}
+
+#logoutBtn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+#logoutBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+#logoutBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Loading state for logout button */
+#logoutBtn.loading {
+  background: #9ca3af;
+  cursor: wait;
+  color: transparent;
+}
+
+#logoutBtn.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* User Avatar Section (optional enhancement) */
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Dashboard Actions Section */
+.dashboard-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.action-btn {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  background: #ffffff;
+  color: #374151;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.action-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+/* Status Indicator */
+.status-indicator {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Info Cards Enhancement */
+.info-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.info-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.info-card .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.info-card .value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Welcome Animation */
+#dashboard.show {
+  animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #dashboard {
+    margin: 1rem;
+    padding: 1.5rem;
+    max-width: none;
+  }
+
+  #dashboard h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #dashboard p {
+    padding: 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  #logoutBtn {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .dashboard-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .status-indicator {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Focus indicators for accessibility */
+#logoutBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.action-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  #dashboard {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  #logoutBtn,
+  .dashboard-actions {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #dashboard {
+    border: 2px solid #000000;
+  }
+
+  #dashboard p {
+    border-left-width: 6px;
+  }
+
+  #logoutBtn {
+    background: #000000;
+  }
+
+  #logoutBtn:hover {
+    background: #333333;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  #dashboard {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+
+  #dashboard h2 {
+    color: #f9fafb;
+  }
+
+  #dashboard p {
+    background: #374151;
+    color: #d1d5db;
+    border-left-color: #60a5fa;
+  }
+
+  #dashboard p:hover {
+    background: #4b5563;
+  }
+
+  #dashName,
+  #dashEmail,
+  #dashUsername {
+    color: #f9fafb;
+  }
+
+  #dashName {
+    color: #60a5fa;
+  }
+
+  .info-card {
+    background: #374151;
+    border-color: #4b5563;
+  }
+
+  .info-card:hover {
+    border-color: #6b7280;
+  }
+
+  .info-card .label {
+    color: #9ca3af;
+  }
+
+  .info-card .value {
+    color: #f9fafb;
+  }
+}

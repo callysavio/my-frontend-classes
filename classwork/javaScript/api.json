@@ -1,0 +1,18 @@
+[
+  {
+    "id":1,
+    "title": "Merriment",
+    "writtenBy": "Asa",
+    "rating": [
+      {
+        "name:" "Basit",
+        "rating": 5,
+        comment: "Great song!",
+      },
+    ],
+    lyrics: "Merriment, merriment, joy and happiness...",
+    imageCover: "../images/merriment.jpg",
+    releaseDate: "2023-10-01",
+    category: "Gospel",
+  },
+];

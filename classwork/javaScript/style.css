@@ -1,0 +1,12 @@
+.box {
+  height: 200px;
+  width: 200px;
+  background-color: green;
+  color: white;
+}
+
+.new-style {
+  height: 250px;
+  width: 250px;
+  background-color: black;
+}
